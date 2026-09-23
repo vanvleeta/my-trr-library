@@ -1,0 +1,7 @@
+# Structural linter for TRR markdown. Pinned to a commit so that every
+# contributor and every CI run checks against the same rules. Update this
+# deliberately -- see docs/DEPLOYMENT.md.
+# NOTE: this SHA must be updated to the merge commit of the bare-link /
+# allow_subsections PR before this template is deployed. The schema in
+# .tiredize/schema.yaml uses allow_subsections, which 7380a85 does not have.
+tiredize @ git+https://github.com/tired-labs/tiredize.git@7380a85

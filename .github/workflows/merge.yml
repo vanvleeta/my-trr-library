@@ -1,0 +1,115 @@
+name: Index new TRR on merge
+run-name: Indexing reports pushed to main
+
+# Triggered by the push itself rather than by a pull request closing.
+#
+# A pull_request trigger depends on the PR event pipeline: GitHub does not
+# reliably queue the merge commit job for closed PRs, and a merge performed by
+# bypassing branch protection can leave the workflow untriggered even though
+# main did receive the commits. A push to main always fires, however the change
+# arrived -- normal merge, squash, admin override, merge queue, or a direct
+# push. Since this job's actual purpose is "main changed, reindex it", that is
+# also the more honest description of when it should run.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Due to the need to write to a protected branch, this workflow uses a GitHub
+# App to write, so the default GITHUB_TOKEN needs only read permissions.
+permissions:
+  contents: read
+
+jobs:
+  assign-trr-numbers:
+    # An App installation token DOES trigger workflows, unlike the token
+    # GitHub issues to a workflow, so this job's own push would otherwise
+    # re-trigger it. The bot tags its commits and they are skipped here.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+
+    # Two reports merged close together would otherwise both read the same
+    # index.json and be assigned the same ID. Serializing on a fixed group
+    # makes the second run read the first one's committed index.
+    concurrency:
+      group: reindex-main
+      cancel-in-progress: false
+
+    steps:
+    # The token GitHub issues to a workflow cannot bypass branch protection,
+    # and its identity cannot be added to a bypass list. A GitHub App can be.
+    # See docs/DEPLOYMENT.md for the setup this requires.
+    - name: Generate GitHub App Token
+      id: app-token
+      uses: actions/create-github-app-token@v3
+      with:
+        client-id: ${{ secrets.GH_APP_CLIENT_ID }}
+        private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+    - name: Checkout main
+      uses: actions/checkout@v7
+      with:
+        ref: main
+        fetch-depth: 0
+        token: ${{ steps.app-token.outputs.token }}
+
+    - name: Get list of TRRs changed in this push
+      id: changed
+      env:
+        BEFORE: ${{ github.event.before }}
+        AFTER: ${{ github.sha }}
+      run: |
+        # github.event.before is all-zeros on a branch's first push, and
+        # unreachable after a force-push or when triggered manually. Fall back
+        # to the pushed commit's first parent, which for a merge or squash
+        # commit is exactly what arrived.
+        base=""
+        if [ -n "${BEFORE}" ] \
+           && [ "${BEFORE}" != "0000000000000000000000000000000000000000" ] \
+           && git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+          base="${BEFORE}"
+        elif git rev-parse --verify --quiet "${AFTER}^1" >/dev/null; then
+          base="${AFTER}^1"
+        fi
+
+        if [ -z "${base}" ]; then
+          echo "No usable base commit to diff against; nothing to do."
+          echo "any_changed=false" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+
+        echo "Diffing ${base}..${AFTER}"
+        files=$(git diff --name-only --diff-filter=ACMR \
+          "${base}" "${AFTER}" \
+          -- 'reports/**/README.md' | tr '\n' ' ')
+
+        echo "files=${files}" >> "$GITHUB_OUTPUT"
+        if [ -n "${files}" ]; then
+          echo "any_changed=true" >> "$GITHUB_OUTPUT"
+          echo "Changed reports: ${files}"
+        else
+          echo "any_changed=false" >> "$GITHUB_OUTPUT"
+          echo "No report markdown files changed."
+        fi
+
+    # Assigns an ID to any new report (one still in a trr0000 folder), renames
+    # its files and folders, and updates the index.
+    - name: Update modified TRRs using indexer
+      if: steps.changed.outputs.any_changed == 'true'
+      run: python3 tools/index.py merge -f ${{ steps.changed.outputs.files }}
+
+    - name: Commit and push updated files to main
+      if: steps.changed.outputs.any_changed == 'true'
+      run: |
+        git config --local user.email "TRR-Bot@users.noreply.github.com"
+        git config --local user.name "TRR-Bot"
+        git add .
+        # [skip ci] keeps this push from re-triggering the workflow.
+        git diff --cached --quiet \
+          || git commit -m "Reindexing TRRs after ${GITHUB_SHA:0:7} [skip ci]"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}

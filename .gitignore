@@ -1,0 +1,5 @@
+# The TRR template has no local/ convention; see docs/DESIGN.md.
+.vscode
+*.exe
+**/__pycache__
+*.pyc

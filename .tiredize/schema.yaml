@@ -1,0 +1,105 @@
+# Markdown schema for Technique Research Reports.
+#
+# This defines the SECTION STRUCTURE a TRR must follow: which sections exist,
+# their heading levels, and their order. It deliberately says nothing about
+# what is inside those sections -- table columns, platform names, procedure
+# IDs and file references are checked by the validator instead
+# (python3 tools/index.py validate), because those depend on this
+# repository's configuration and a generic linter cannot know them.
+
+enforce_order: true
+allow_extra_sections: false
+
+sections:
+  # The report title. Any non-empty title is accepted.
+  - pattern: ".+"
+    level: 1
+    sections:
+      - name: "Metadata"
+        level: 2
+        sections:
+          # Present in most reports, but not required.
+          - name: "Scope Statement"
+            level: 3
+            required: false
+
+      - name: "Technique Overview"
+        level: 2
+        sections:
+          - pattern: ".+"
+            level: 3
+            required: false
+            repeat:
+              min: 0
+
+      - name: "Technical Background"
+        level: 2
+        sections:
+          - pattern: ".+"
+            level: 3
+            required: false
+            repeat:
+              min: 0
+            sections:
+              - pattern: ".+"
+                level: 4
+                required: false
+                repeat:
+                  min: 0
+                sections:
+                  - pattern: ".+"
+                    level: 5
+                    required: false
+                    repeat:
+                      min: 0
+                    sections:
+                      - pattern: ".+"
+                        level: 6
+                        required: false
+                        repeat:
+                          min: 0
+
+      - name: "Procedures"
+        level: 2
+        sections:
+          # One subsection per procedure, e.g. "Procedure A: Dump Credentials"
+          #
+          # Authors add explanatory subsections around the Detection Data
+          # Model, and some place them after it, so the inside of a procedure
+          # is not constrained here. That every procedure HAS a Detection Data
+          # Model is checked by the validator, which can report it against the
+          # procedure it belongs to.
+          - pattern: "^Procedure [A-Z]:\\s+.+$"
+            level: 3
+            repeat:
+              min: 1
+            sections:
+              - pattern: ".+"
+                level: 4
+                required: false
+                repeat:
+                  min: 0
+                sections:
+                  - pattern: ".+"
+                    level: 5
+                    required: false
+                    repeat:
+                      min: 0
+                    sections:
+                      - pattern: ".+"
+                        level: 6
+                        required: false
+                        repeat:
+                          min: 0
+
+      - name: "Available Emulation Tests"
+        level: 2
+
+      - name: "References"
+        level: 2
+        sections:
+          - pattern: ".+"
+            level: 3
+            required: false
+            repeat:
+              min: 0

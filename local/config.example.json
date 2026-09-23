@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id_prefix": "XXXX",
+  "platforms": {
+    "Active Directory": "ad",
+    "Android": "and",
+    "AWS": "aws",
+    "Azure": "azr",
+    "Docker": "dkr",
+    "Microsoft 365": "m365",
+    "GCP": "gcp",
+    "iOS": "ios",
+    "Kubernetes": "k8s",
+    "Linux": "lin",
+    "macOS": "mac",
+    "Physical": "phy",
+    "Windows": "win"
+  },
+  "tactics": [],
+  "core_fields": {
+    "ID": {
+      "type": "single",
+      "required": true
+    },
+    "External IDs": {
+      "type": "list",
+      "required": false
+    },
+    "Tactics": {
+      "type": "list",
+      "required": true
+    },
+    "Platforms": {
+      "type": "list",
+      "required": true
+    },
+    "Contributors": {
+      "type": "list",
+      "required": true
+    }
+  }
+}

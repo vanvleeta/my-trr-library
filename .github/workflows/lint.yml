@@ -1,0 +1,82 @@
+name: Lint and validate reports
+run-name: Checking ${{ github.head_ref }} on PR creation/modification
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  lint_and_validate:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v7
+      with:
+        # Full history so the base commit is available to diff against.
+        fetch-depth: 0
+
+    - name: Get list of report markdown files changed in PR
+      id: changed
+      run: |
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          # Deliberately not using a third-party action here. Many
+          # organizations restrict which actions may run, and git can do this
+          # unaided.
+          files=$(git diff --name-only --diff-filter=ACMR \
+            "${{ github.event.pull_request.base.sha }}" \
+            "${{ github.event.pull_request.head.sha }}" \
+            -- 'reports/**/README.md' | tr '\n' ' ')
+        else
+          files=""
+        fi
+        echo "files=${files}" >> "$GITHUB_OUTPUT"
+        if [ -n "${files}" ]; then
+          echo "any_changed=true" >> "$GITHUB_OUTPUT"
+          echo "Changed reports: ${files}"
+        else
+          echo "any_changed=false" >> "$GITHUB_OUTPUT"
+          echo "No report markdown files changed."
+        fi
+
+    - name: Set up Python
+      if: steps.changed.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+      uses: actions/setup-python@v7
+      with:
+        python-version: '3.11'
+
+    # Tiredize is a Python package, not an action, so it is unaffected by any
+    # restriction on which actions may run. The version is pinned in
+    # .tiredize/requirements.txt.
+    - name: Install Tiredize
+      if: steps.changed.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+      run: pip install -r .tiredize/requirements.txt
+
+    # Structural checks: section structure and style.
+    - name: Lint changed files
+      if: steps.changed.outputs.any_changed == 'true'
+      run: |
+        tiredize \
+          --markdown-schema .tiredize/schema.yaml \
+          --rules .tiredize/rules.yaml \
+          ${{ steps.changed.outputs.files }}
+
+    - name: Lint all files
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        tiredize \
+          --markdown-schema .tiredize/schema.yaml \
+          --rules .tiredize/rules.yaml \
+          $(find reports docs/examples -name README.md)
+
+    # Semantic checks: values legal for this repository's configuration.
+    - name: Validate changed reports against repository config
+      if: steps.changed.outputs.any_changed == 'true'
+      run: python3 tools/index.py validate --show-entry -f ${{ steps.changed.outputs.files }}
+
+    - name: Validate all reports against repository config
+      if: github.event_name == 'workflow_dispatch'
+      run: python3 tools/index.py validate

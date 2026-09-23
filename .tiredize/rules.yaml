@@ -1,0 +1,43 @@
+# Linter rules for Technique Research Reports.
+#
+# Style and formatting only. Anything that depends on this repository's
+# configuration -- platform names, ID prefixes, procedure IDs -- is checked by
+# the validator instead (python3 tools/index.py validate).
+
+# The style guide wraps prose at 80 characters. Tables, code blocks and long
+# URLs cannot always be wrapped, so they are exempt.
+line_length:
+  maximum_length: 80
+  exclude:
+    - table
+    - code_block
+    # WORKAROUND: only needed while pinned to a Tiredize build that does not
+    # recognize a fenced code block nested inside a blockquote ("> ```").
+    # Once the pin includes that fix, delete this line -- it currently also
+    # exempts quoted prose from the line limit, which the style guide wants
+    # enforced.
+    - quoteblock
+    - reference_definition
+    - image_inline
+    - image_reference
+
+tabs:
+  allowed: false
+
+trailing_whitespace:
+  allowed: false
+
+# Unicode is permitted in prose but not in headers, where it tends to arrive
+# by accident from copied text.
+unicode:
+  allowed: true
+  exclude:
+    - header
+
+# Links must be reference-style, which keeps prose readable and long URLs out of
+# the body of the text.
+elements:
+  disallow:
+    - link_inline
+    - autolink_extended
+    - autolink
