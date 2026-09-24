@@ -17,9 +17,9 @@ line_length:
     # exempts quoted prose from the line limit, which the style guide wants
     # enforced.
     - quoteblock
+    - link_reference
     - reference_definition
     - image_inline
-    - image_reference
 
 tabs:
   allowed: false

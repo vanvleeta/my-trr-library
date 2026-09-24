@@ -2,12 +2,12 @@
 
 ## Metadata
 
-| Key     | Value     |
-|--------------|------------|
-| ID           | TRR0011 |
+| Key | Value |
+| ----- | ----- |
+| ID | TRR0011 |
 | External IDs | [T1003.006] |
-| Tactics      | Credential Access |
-| Platforms    | Active Directory |
+| Tactics | Credential Access |
+| Platforms | Active Directory |
 | Contributors | Andrew VanVleet |
 
 ## Technique Overview
@@ -61,10 +61,10 @@ standard set of rights (these are control access rights, as discussed above).
 The specific permissions that allow a user to request replication are:
 
 | Name | Control Access Right GUID | Description |
-|----|----|----|
-| DS-Replication-Get-Changes | 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2 |This allows replication of data, excluding confidential attributes like password hashes. This is the base permission; it must be held for the other two permissions to work.|
-| DS-Replication-Get-Changes-All | 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2 |This allows replication of all data, including confidential attributes.|
-|DS-Replication-Get-Changes-In-Filtered-Set | 89e95b76-444d-4c62-991a-0facbeda640c |This allows replication of domain data, including confidential attributes that are in a filtered set that will never be replicated to a Read Only Domain Controller (RODC).|
+| ---- | ---- | ---- |
+| DS-Replication-Get-Changes | 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2 | This allows replication of data, excluding confidential attributes like password hashes. This is the base permission; it must be held for the other two permissions to work. |
+| DS-Replication-Get-Changes-All | 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2 | This allows replication of all data, including confidential attributes. |
+| DS-Replication-Get-Changes-In-Filtered-Set | 89e95b76-444d-4c62-991a-0facbeda640c | This allows replication of domain data, including confidential attributes that are in a filtered set that will never be replicated to a Read Only Domain Controller (RODC). |
 
 These rights are granted by default to members of the Administrators, Domain
 Admins, or Enterprise Admin groups; they are also given to the system accounts
@@ -144,7 +144,7 @@ Here is an example log showing domain replication:
 ## Procedures
 
 | ID | Title | Tactic |
-|----|----|----|
+| ---- | ---- | ---- |
 | TRR0011.AD.A | Request replication from a DC | Credential Access |
 
 ### Procedure A: Request replication from a DC
@@ -167,8 +167,8 @@ coverage of this technique.
 
 ## Available Emulation Tests
 
-| ID            | Link             |
-|---------------|------------------|
+| ID           | Link               |
+| ------------ | ------------------ |
 | TRR0011.AD.A | [Atomic Tests 1-2] |
 
 ## References
@@ -183,15 +183,17 @@ coverage of this technique.
 - [Windows Event Accesses IDs - Lee Harvey Blog (via Wayback Machine)]
 - [The Other Replicating Directory Changes - Eric Kuehn]
 - [ADS_RIGHTS_ENUM - Microsoft Learn]
-- [Criminal Actor Targeting Organizations for Data Exfil and Destruction -
-  Microsoft]
+- [Criminal Actor Targeting Organizations for Data Exfil and Destruction - Microsoft]
 - [Earth Lusca Operations - TrendMicro]
-- [Analysis of Intrusion Campaign Targeting Telecom and BPO Companies -
-  Crowdstrike]
+- [Analysis of Intrusion Campaign Targeting Telecom and BPO Companies - Crowdstrike]
 - [Operation Wocao - FoxIT]
 - [Using M365 Defender to Protect Against Solorigate - Microsoft]
 - [Deep Dive into Solorigate - Microsoft]
 - [Observations from the StellarParticle Campaign - Crowdstrike]
+
+[^1]: [MS-ADTS Protocol - Microsoft Learn]
+[^2]: [MS-ADTS Protocol - Microsoft Learn]
+[^3]: [Audit Directory Service Access]
 
 [T1003.006]: https://attack.mitre.org/techniques/T1003/006/
 [Golden Ticket]: https://attack.mitre.org/techniques/T1558/001
@@ -217,7 +219,5 @@ coverage of this technique.
 [Using M365 Defender to Protect Against Solorigate - Microsoft]: https://www.microsoft.com/en-us/security/blog/2020/12/28/using-microsoft-365-defender-to-coordinate-protection-against-solorigate/
 [Deep Dive into Solorigate - Microsoft]: https://www.microsoft.com/en-us/security/blog/2021/01/20/deep-dive-into-the-solorigate-second-stage-activation-from-sunburst-to-teardrop-and-raindrop/
 [Observations from the StellarParticle Campaign - Crowdstrike]: https://www.crowdstrike.com/blog/observations-from-the-stellarparticle-campaign/
-
-[^1]: [MS-ADTS Protocol - Microsoft Learn](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/e6685d31-5d87-42d0-8a5f-e55d337f47cd)
-[^2]: [MS-ADTS Protocol - Microsoft Learn](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/e6685d31-5d87-42d0-8a5f-e55d337f47cd)
-[^3]: [Audit Directory Service Access](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/audit-directory-service-access)
+[MS-ADTS Protocol - Microsoft Learn]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/e6685d31-5d87-42d0-8a5f-e55d337f47cd
+[Audit Directory Service Access]: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/audit-directory-service-access

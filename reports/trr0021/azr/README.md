@@ -90,14 +90,14 @@ monitoring teams. The following table provides a list of the types of activity
 logged.
 
 | Audit Category | Activity |
-|---|---|
-|UserManagement|Delete external user|
-|UserManagement|Email not sent, user unsubscribed|
-|UserManagement|Invitation Email|
-|UserManagement|Invite external user|
-|UserManagement|Invite external user with reset invitation status|
-|UserManagement|Invite internal user to B2B collaboration|
-|UserManagement|Redeem external user invite|
+| --- | --- |
+| UserManagement | Delete external user |
+| UserManagement | Email not sent, user unsubscribed |
+| UserManagement | Invitation Email |
+| UserManagement | Invite external user |
+| UserManagement | Invite external user with reset invitation status |
+| UserManagement | Invite internal user to B2B collaboration |
+| UserManagement | Redeem external user invite |
 
 #### Guest Settings Modification Logs
 
@@ -156,11 +156,12 @@ bulk using CSV files.
 - [External Collaboration Settings in Entra]
 - [AD Tenant Enumeration with Guest Accounts]
 
+[^1]: [Invite External User]
+
 [T1136.003]: https://attack.mitre.org/techniques/MITRE_ATT&CK_ID/T1136/003/
 [AZT502.1]: https://microsoft.github.io/Azure-Threat-Research-Matrix/Persistence/AZT502/AZT502-1/
 [AZT502.2]: https://microsoft.github.io/Azure-Threat-Research-Matrix/Persistence/AZT502/AZT502-2/
 [AZT502.3]: https://microsoft.github.io/Azure-Threat-Research-Matrix/Persistence/AZT502/AZT502-3/
 [External Collaboration Settings in Entra]: https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure
 [AD Tenant Enumeration with Guest Accounts]: https://danielchronlund.com/2021/11/18/scary-azure-ad-tenant-enumeration-using-regular-b2b-guest-accounts/
-
-[^1]: [Invite External User](https://learn.microsoft.com/en-us/entra/external-id/add-users-administrator)
+[Invite External User]: https://learn.microsoft.com/en-us/entra/external-id/add-users-administrator
