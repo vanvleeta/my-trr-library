@@ -1,1 +1,782 @@
-[]
+{
+  "schema": 2,
+  "generated": "2026-09-24T15:16:57Z",
+  "platforms": {
+    "Active Directory": "ad",
+    "Android": "and",
+    "AWS": "aws",
+    "Azure": "azr",
+    "Docker": "dkr",
+    "Microsoft 365": "m365",
+    "GCP": "gcp",
+    "iOS": "ios",
+    "Kubernetes": "k8s",
+    "Linux": "lin",
+    "macOS": "mac",
+    "Physical": "phy",
+    "Windows": "win"
+  },
+  "records": [
+    {
+      "title": "DC Synchronization Attack (DCSync)",
+      "id": "TRR0011",
+      "external_ids": [
+        "T1003.006"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Active Directory"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Request replication from a DC"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-2",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.006/T1003.006.md"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Kerberos AS-REP Roasting",
+      "id": "TRR0012",
+      "external_ids": [
+        "T1558.004"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Active Directory"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Enumerate Accounts Lacking Pre-Authentication via LDAP",
+        "B": "Enumerate Accounts Lacking Pre-Authentication via ADWS",
+        "C": "Test All Accounts for Pre-Authentication Status",
+        "D": "Intercept AS Messages on the Network"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-3",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1558.004/T1558.004.md"
+        },
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Forge a Kerberos TGT",
+      "id": "TRR0013",
+      "external_ids": [
+        "T1558.001"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Active Directory"
+      ],
+      "contributors": [
+        "Andrew VanVleet",
+        "Chris Hodson"
+      ],
+      "procedures": {
+        "A": "Forge a TGT from scratch (Golden Ticket)",
+        "B": "Forge TGT using PAC acquired via U2U+S4U2Self (Sapphire Ticket)"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-2",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1558.001/T1558.001.md"
+        },
+        "B": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Rogue Domain Controller (DCShadow)",
+      "id": "TRR0014",
+      "external_ids": [
+        "T1207"
+      ],
+      "tactics": [
+        "Defense Evasion"
+      ],
+      "platforms": [
+        "Active Directory"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Insert a rogue DC"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Test 1",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1207/T1207.md"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Stealing Credentials from the NTDS.dit",
+      "id": "TRR0015",
+      "external_ids": [
+        "T1003.003"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Windows",
+        "Active Directory"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Volume shadow copy access",
+        "B": "Raw disk access"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-9",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.003/T1003.003.md"
+        },
+        "B": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Signed Binary Proxy Execution with MSHTA",
+      "id": "TRR0016",
+      "external_ids": [
+        "T1218.005"
+      ],
+      "tactics": [
+        "Defense Evasion"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Mshta executing HTA files or inline scripts",
+        "B": "RunDll32 calling RunHTMLApplication from mshtml.dll"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-6, 8-10",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.005/T1218.005.md"
+        },
+        "B": {
+          "text": "Atomic Test 7",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.005/T1218.005.md#atomic-test-7---invoke-html-application---jscript-engine-with-rundll32-and-inline-protocol-handler"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Malicious USB Device",
+      "id": "TRR0017",
+      "external_ids": [
+        "T1200"
+      ],
+      "tactics": [
+        "Initial Access",
+        "Credential Access",
+        "Defense Evasion"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Hardware-based keystroke logging",
+        "B": "Keystroke injection",
+        "C": "Clandestine data transfer"
+      },
+      "tests": {
+        "A": null,
+        "B": null,
+        "C": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Kerberos Service Ticket Roasting (Kerberoasting)",
+      "id": "TRR0018",
+      "external_ids": [
+        "T1558.003"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Active Directory"
+      ],
+      "contributors": [
+        "Andrew VanVleet",
+        "Chris Hodson"
+      ],
+      "procedures": {
+        "A": "Enumerate SPNs with LDAP",
+        "B": "Enumerate SPNs with ADWS",
+        "C": "Intercept Tickets On the Network",
+        "D": "Harvest Tickets off Endpoints"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-3, 5-7",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1558.003/T1558.003.md"
+        },
+        "B": null,
+        "C": null,
+        "D": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Remote Email Collection",
+      "id": "TRR0019",
+      "external_ids": [
+        "T1114.002"
+      ],
+      "tactics": [
+        "Collection"
+      ],
+      "platforms": [
+        "Microsoft 365"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Valid Credentials",
+        "B": "API Access as an Application",
+        "C": "eDiscovery",
+        "D": "Mailbox Delegation",
+        "E": "Export Mailbox"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Test 1",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1114.002/T1114.002.md#atomic-test-1---office365---remote-mail-collected"
+        },
+        "B": null,
+        "C": null,
+        "D": {
+          "text": "Atomic Test",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098.002/T1098.002.md#atomic-test-1---exo---full-access-mailbox-permission-granted-to-a-user"
+        },
+        "E": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Azure Service Principal Manipulation",
+      "id": "TRR0020",
+      "external_ids": [
+        "AZT501.2",
+        "AZT502.2",
+        "T1098.001",
+        "T1098.003",
+        "T1136.003"
+      ],
+      "tactics": [
+        "Persistence"
+      ],
+      "platforms": [
+        "Azure"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Add credentials",
+        "B": "Add owner",
+        "C": "Add role",
+        "D": "Add API permissions"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Test 1",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098.001/T1098.001.md#atomic-test-1---azure-ad-application-hijacking---service-principal"
+        },
+        "B": null,
+        "C": {
+          "text": "Atomic Test 1-2",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098.003/T1098.003.md"
+        },
+        "D": {
+          "text": "Atomic Test 8",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098/T1098.md#atomic-test-8---azure-ad---adding-permission-to-application"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Azure Guest Account Creation",
+      "id": "TRR0021",
+      "external_ids": [
+        "AZT502.3",
+        "T1136.003"
+      ],
+      "tactics": [
+        "Persistence"
+      ],
+      "platforms": [
+        "Azure"
+      ],
+      "contributors": [
+        "Tequila Schramm",
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Create guest account"
+      },
+      "tests": {
+        "A": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Hijack Azure Subscription",
+      "id": "TRR0022",
+      "external_ids": [
+        "AZT507.3",
+        "T1496.004"
+      ],
+      "tactics": [
+        "Persistence",
+        "Impact"
+      ],
+      "platforms": [
+        "Azure"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Hijack via an external guest user",
+        "B": "Hijack via an internal user"
+      },
+      "tests": {
+        "A": null,
+        "B": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Clearing Windows Event Logs",
+      "id": "TRR0023",
+      "external_ids": [
+        "T1070.001"
+      ],
+      "tactics": [
+        "Defense Evasion"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet",
+        "Miles Whittaker",
+        "Chris Hodson"
+      ],
+      "procedures": {
+        "A": "Event Clearing via RPC Call",
+        "B": "Event Logging Process Termination",
+        "C": "Event Log File Redirection"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-3",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1070.001/T1070.001.md"
+        },
+        "B": null,
+        "C": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Pass-the-Ticket",
+      "id": "TRR0024",
+      "external_ids": [
+        "T1550.003"
+      ],
+      "tactics": [
+        "Defense Evasion",
+        "Lateral Movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Submit ticket to local cache"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-2",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1550.003/T1550.003.md"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Process Injection via Asynchronous Procedure Call (APC)",
+      "id": "TRR0025",
+      "external_ids": [
+        "T1055.004",
+        "T1055.001",
+        "T1055.002"
+      ],
+      "tactics": [
+        "Defense Evasion",
+        "Privilege Escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Queue Remote APC"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests #1-3",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1055.004/T1055.004.md"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Process Injection via Thread Local Storage Callback",
+      "id": "TRR0026",
+      "external_ids": [
+        "T1055.005",
+        "T1055.001",
+        "T1055.002"
+      ],
+      "tactics": [
+        "Defense Evasion",
+        "Privilege Escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Malicious TLS Callback"
+      },
+      "tests": {
+        "A": {
+          "text": "TLSInject - GitHub",
+          "url": "https://github.com/vanvleeta/TLSInject"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "WMI Event Subscription",
+      "id": "TRR0027",
+      "external_ids": [
+        "T1546.003"
+      ],
+      "tactics": [
+        "Persistence"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Create a WMI Event Subscription"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Tests 1-3",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1546.003/T1546.003.md"
+        }
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Key Credential Link Addition (Shadow Credentials)",
+      "id": "TRR0028",
+      "external_ids": [
+        "T1098.001",
+        "T1098"
+      ],
+      "tactics": [
+        "Persistence",
+        "Privilege Escalation"
+      ],
+      "platforms": [
+        "Active Directory"
+      ],
+      "contributors": [
+        "Andrew VanVleet",
+        "Chris Hodson"
+      ],
+      "procedures": {
+        "A": "Key Credential Link Addition"
+      },
+      "tests": {
+        "A": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "UnPAC-the-Hash",
+      "id": "TRR0029",
+      "external_ids": [
+        "T1555"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet",
+        "Chris Hodson"
+      ],
+      "procedures": {
+        "A": "Certificate + U2U",
+        "B": "Key Trust + U2U"
+      },
+      "tests": {
+        "A": null,
+        "B": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Extracting Credentials from the SAM Database",
+      "id": "TRR0030",
+      "external_ids": [
+        "T1003.002"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Local Registry Access",
+        "B": "Remote Registry Access",
+        "C": "Volume Shadow Copy Access",
+        "D": "Raw Disk Access",
+        "E": "Acquire Registry Backup"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Test T1003.002",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.002/T1003.002.md"
+        },
+        "B": {
+          "text": "regsecrets.py - GitHub",
+          "url": "https://github.com/fortra/impacket/blob/master/impacket/examples/regsecrets.py"
+        },
+        "C": {
+          "text": "Atomic Test T1003.002",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.002/T1003.002.md"
+        },
+        "D": null,
+        "E": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Entra ID Federated Domain Trust Modification",
+      "id": "TRR0031",
+      "external_ids": [
+        "T1484.002",
+        "T1556.007"
+      ],
+      "tactics": [
+        "Persistence",
+        "Defense Evasion"
+      ],
+      "platforms": [
+        "Azure"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Modify existing federated domain",
+        "B": "Add new federated domain"
+      },
+      "tests": {
+        "A": {
+          "text": "Atomic Test",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1484.002/T1484.002.md"
+        },
+        "B": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Forging SAML Tokens for Entra ID",
+      "id": "TRR0032",
+      "external_ids": [
+        "T1606.002"
+      ],
+      "tactics": [
+        "Credential Access",
+        "Defense Evasion"
+      ],
+      "platforms": [
+        "Azure"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Submit forged token to federation endpoint",
+        "B": "Exchange forged token via SAML Bearer flow"
+      },
+      "tests": {
+        "A": null,
+        "B": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Disable or Modify Cloud Logs (Azure)",
+      "id": "TRR0033",
+      "external_ids": [
+        "T1685.002"
+      ],
+      "tactics": [
+        "Defense Impairment"
+      ],
+      "platforms": [
+        "Azure"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Modify Entra Diagnostic Setting",
+        "B": "Modify Azure Diagnostic Setting"
+      },
+      "tests": {
+        "A": null,
+        "B": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "Disable or Modify Cloud Logs (Microsoft 365)",
+      "id": "TRR0033",
+      "external_ids": [
+        "T1685.002"
+      ],
+      "tactics": [
+        "Defense Impairment"
+      ],
+      "platforms": [
+        "Microsoft 365"
+      ],
+      "contributors": [
+        "Andrew VanVleet"
+      ],
+      "procedures": {
+        "A": "Disable Unified Audit Log Ingestion",
+        "B": "Disable Mailbox Auditing (Org Wide)",
+        "C": "Bypass Mailbox Auditing (Per Principal)",
+        "D": "Reduce Mailbox Audited Actions (Per Mailbox)",
+        "E": "Reduce Audit Log Retention"
+      },
+      "tests": {
+        "A": null,
+        "B": null,
+        "C": null,
+        "D": null,
+        "E": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    },
+    {
+      "title": "OAuth Authorization Code Phishing",
+      "id": "TRR0034",
+      "external_ids": [
+        "T1528"
+      ],
+      "tactics": [
+        "Credential Access"
+      ],
+      "platforms": [
+        "Azure"
+      ],
+      "contributors": [
+        "Kyle Barboza"
+      ],
+      "procedures": {
+        "A": "Authorization Code Collection via Social Engineering (ConsentFix)"
+      },
+      "tests": {
+        "A": null
+      },
+      "last_update": "2026-09-24",
+      "pub_date": "2026-09-24"
+    }
+  ]
+}
