@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "generated": "2026-09-24T16:58:28Z",
+  "generated": "2026-09-24T21:48:40Z",
   "platforms": {
     "Active Directory": "ad",
     "Android": "and",
@@ -41,8 +41,7 @@
           "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.006/T1003.006.md"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-01"
     },
     {
       "title": "Kerberos AS-REP Roasting",
@@ -74,8 +73,8 @@
         "C": null,
         "D": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Forge a Kerberos TGT",
@@ -104,8 +103,8 @@
         },
         "B": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Rogue Domain Controller (DCShadow)",
@@ -131,8 +130,8 @@
           "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1207/T1207.md"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Stealing Credentials from the NTDS.dit",
@@ -161,8 +160,8 @@
         },
         "B": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Signed Binary Proxy Execution with MSHTA",
@@ -193,8 +192,8 @@
           "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.005/T1218.005.md#atomic-test-7---invoke-html-application---jscript-engine-with-rundll32-and-inline-protocol-handler"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Malicious USB Device",
@@ -223,8 +222,8 @@
         "B": null,
         "C": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Kerberos Service Ticket Roasting (Kerberoasting)",
@@ -257,8 +256,8 @@
         "C": null,
         "D": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Remote Email Collection",
@@ -295,8 +294,8 @@
         },
         "E": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Azure Service Principal Manipulation",
@@ -338,8 +337,8 @@
           "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098/T1098.md#atomic-test-8---azure-ad---adding-permission-to-application"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Azure Guest Account Creation",
@@ -364,8 +363,8 @@
       "tests": {
         "A": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Hijack Azure Subscription",
@@ -392,8 +391,8 @@
         "A": null,
         "B": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-10-07",
+      "last_update": "2025-10-07"
     },
     {
       "title": "Clearing Windows Event Logs",
@@ -425,8 +424,8 @@
         "B": null,
         "C": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-12-04",
+      "last_update": "2025-12-04"
     },
     {
       "title": "Pass-the-Ticket",
@@ -453,8 +452,8 @@
           "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1550.003/T1550.003.md"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2025-12-16",
+      "last_update": "2025-12-16"
     },
     {
       "title": "Process Injection via Asynchronous Procedure Call (APC)",
@@ -483,8 +482,8 @@
           "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1055.004/T1055.004.md"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-02-03",
+      "last_update": "2026-02-03"
     },
     {
       "title": "Process Injection via Thread Local Storage Callback",
@@ -513,8 +512,8 @@
           "url": "https://github.com/vanvleeta/TLSInject"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-02-09",
+      "last_update": "2026-02-09"
     },
     {
       "title": "WMI Event Subscription",
@@ -540,8 +539,8 @@
           "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1546.003/T1546.003.md"
         }
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-02-12",
+      "last_update": "2026-02-12"
     },
     {
       "title": "Key Credential Link Addition (Shadow Credentials)",
@@ -567,8 +566,8 @@
       "tests": {
         "A": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-02-19",
+      "last_update": "2026-02-19"
     },
     {
       "title": "UnPAC-the-Hash",
@@ -594,8 +593,8 @@
         "A": null,
         "B": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-02-19",
+      "last_update": "2026-02-19"
     },
     {
       "title": "Extracting Credentials from the SAM Database",
@@ -635,8 +634,8 @@
         "D": null,
         "E": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-03-19",
+      "last_update": "2026-03-19"
     },
     {
       "title": "Entra ID Federated Domain Trust Modification",
@@ -666,8 +665,8 @@
         },
         "B": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-06-03",
+      "last_update": "2026-06-03"
     },
     {
       "title": "Forging SAML Tokens for Entra ID",
@@ -693,8 +692,8 @@
         "A": null,
         "B": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-06-29",
+      "last_update": "2026-06-29"
     },
     {
       "title": "Disable or Modify Cloud Logs (Azure)",
@@ -719,8 +718,8 @@
         "A": null,
         "B": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-07-07",
+      "last_update": "2026-07-07"
     },
     {
       "title": "Disable or Modify Cloud Logs (Microsoft 365)",
@@ -751,8 +750,8 @@
         "D": null,
         "E": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-07-22",
+      "last_update": "2026-07-22"
     },
     {
       "title": "OAuth Authorization Code Phishing",
@@ -775,8 +774,8 @@
       "tests": {
         "A": null
       },
-      "last_update": "2026-09-24",
-      "pub_date": "2026-09-24"
+      "pub_date": "2026-08-17",
+      "last_update": "2026-08-17"
     }
   ]
 }
