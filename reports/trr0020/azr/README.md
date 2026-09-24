@@ -237,11 +237,11 @@ also to read the blobs inside the container (data plane):
 
 ## Procedures
 
-| ID              | Title            | Tactic        |
-|-----------------|------------------|---------------|
-| TRR0020.AZR.A   | Add credentials  | Persistence   |
-| TRR0020.AZR.B   | Add owner        | Persistence   |
-| TRR0020.AZR.C   | Add role         | Persistence   |
+| ID              | Title               | Tactic        |
+|-----------------|---------------------|---------------|
+| TRR0020.AZR.A   | Add credentials     | Persistence   |
+| TRR0020.AZR.B   | Add owner           | Persistence   |
+| TRR0020.AZR.C   | Add role            | Persistence   |
 | TRR0020.AZR.D   | Add API permissions | Persistence   |
 
 ### Procedure A: Add credentials
@@ -314,10 +314,10 @@ useful to an attacker are:
 
 | Action | Description |
 | ----- | ----- |
-|microsoft.directory/applications/authentication/update | Update the applications.authentication property in Microsoft Entra ID. |
-|microsoft.directory/applications/credentials/update | Update the applications.credentials property in Microsoft Entra ID. |
-|microsoft.directory/applications/permissions/update | Update the applications.permissions property in Microsoft Entra ID. |
-|microsoft.directory/applications/policies/update | Update the applications.policies property in Microsoft Entra ID. |
+| microsoft.directory/applications/authentication/update | Update the applications.authentication property in Microsoft Entra ID. |
+| microsoft.directory/applications/credentials/update | Update the applications.credentials property in Microsoft Entra ID. |
+| microsoft.directory/applications/permissions/update | Update the applications.permissions property in Microsoft Entra ID. |
+| microsoft.directory/applications/policies/update | Update the applications.policies property in Microsoft Entra ID. |
 
 Similarly, attackers would find the following permissions held by owners of
 enterprise applications useful:
@@ -374,7 +374,7 @@ role holding them:
 | * | Create and manage resources of all types. |
 | */delete | Delete resources of all types. |
 | */write | Write resources of all types. |
-|Microsoft.Authorization/denyAssignments/delete | Delete a deny assignment at the specified scope. |
+| Microsoft.Authorization/denyAssignments/delete | Delete a deny assignment at the specified scope. |
 | Microsoft.Authorization/denyAssignments/write | Create a deny assignment at the specified scope. |
 | Microsoft.Authorization/roleAssignments/delete | Delete a role assignment at the specified scope. |
 | Microsoft.Authorization/roleAssignments/write | Create a role assignment at the specified scope. |
@@ -602,6 +602,21 @@ to abuse. In Azure logging, delegated permissions are called an
 - [User and Admin Consent - Microsoft Learn]
 - [Grant Tenant-Wide Admin Consent - Microsoft Learn]
 
+[^1]: [Entra Managed Identities - Microsoft Learn]
+[^2]: [Application and service principal objects in Microsoft Entra ID - Microsoft Learn]
+[^3]: [Access Token Request with a Federated Credential - Microsoft Learn]
+[^4]: [Adding Credentials - Microsoft Learn]
+[^5]: [App consent permissions for custom roles - Microsoft Learn]
+[^6]: [Azure Privilege Escalation via API Permissions Abuse - SpecterOps]
+[^7]: [Microsoft Graph Permissions Reference - Microsoft Learn]
+[^8]: [Graph API ServicePrincipal Add Password - Microsoft Learn]
+[^9]: [Azure Resource Manager - Microsoft Learn]
+[^10]: [Graph API ServicePrincipal  Add Owner - Microsoft Learn]
+[^11]: [AZ CLI App Owner - Microsoft Learn]
+[^12]: [AZ CLI SPN Owner - Microsoft Learn]
+[^13]: [Microsoft Entra built-in roles - Microsoft Learn]
+[^14]: [Workload Identity Federation - Microsoft Learn]
+
 [T1098.001]: https://attack.mitre.org/techniques/T1098/001/
 [T1136.003]: https://attack.mitre.org/techniques/T1136/003/
 [AZT502.2]: https://microsoft.github.io/Azure-Threat-Research-Matrix/Persistence/AZT502/AZT502-2/
@@ -626,18 +641,17 @@ to abuse. In Azure logging, delegated permissions are called an
 [Atomic Test 5]: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098/T1098.md#atomic-test-5---azure-ad---adding-service-principal-to-azure-ad-role
 [Atomic Test 7]: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098/T1098.md#atomic-test-7---azure---adding-service-principal-to-azure-role-in-subscription
 [Atomic Test 8]: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098/T1098.md#atomic-test-8---azure-ad---adding-permission-to-application
-
-[^1]: [Entra Managed Identities - Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
-[^2]: [Application and service principal objects in Microsoft Entra ID - Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals)
-[^3]: [Access Token Request with a Federated Credential - Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow#third-case-access-token-request-with-a-federated-credential)
-[^4]: [Adding Credentials - Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=federated-credential#add-credentials)
-[^5]: [App consent permissions for custom roles - Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-consent-permissions)
-[^6]: [Azure Privilege Escalation via API Permissions Abuse - SpecterOps](https://specterops.io/blog/2021/12/01/azure-privilege-escalation-via-azure-api-permissions-abuse/)
-[^7]: [Microsoft Graph Permissions Reference - Microsoft     Learn](https://learn.microsoft.com/en-us/graph/permissions-reference)
-[^8]: [Graph API ServicePrincipal Add Password - Microsoft Learn](https://learn.microsoft.com/en-us/graph/api/serviceprincipal-addpassword?view=graph-rest-1.0&tabs=http)
-[^9]: [Azure Resource Manager - Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview)
-[^10]: [Graph API ServicePrincipal  Add Owner - Microsoft Learn](https://learn.microsoft.com/en-us/graph/api/serviceprincipal-post-owners?view=graph-rest-1.0&tabs=http)
-[^11]: [AZ CLI App Owner - Microsoft Learn](https://learn.microsoft.com/en-us/cli/azure/ad/app/owner?view=azure-cli-latest)
-[^12]: [AZ CLI SPN Owner - Microsoft     Learn](https://learn.microsoft.com/en-us/cli/azure/ad/sp/owner?view=azure-cli-latest)
-[^13]: [Microsoft Entra built-in roles - Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference)
-[^14]: [Workload Identity Federation - Microsoft Learn](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation)
+[Entra Managed Identities - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview
+[Application and service principal objects in Microsoft Entra ID - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals
+[Access Token Request with a Federated Credential - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow#third-case-access-token-request-with-a-federated-credential
+[Adding Credentials - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=federated-credential#add-credentials
+[App consent permissions for custom roles - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/custom-consent-permissions
+[Azure Privilege Escalation via API Permissions Abuse - SpecterOps]: https://specterops.io/blog/2021/12/01/azure-privilege-escalation-via-azure-api-permissions-abuse/
+[Microsoft Graph Permissions Reference - Microsoft     Learn]: https://learn.microsoft.com/en-us/graph/permissions-reference
+[Graph API ServicePrincipal Add Password - Microsoft Learn]: https://learn.microsoft.com/en-us/graph/api/serviceprincipal-addpassword?view=graph-rest-1.0&tabs=http
+[Azure Resource Manager - Microsoft Learn]: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview
+[Graph API ServicePrincipal  Add Owner - Microsoft Learn]: https://learn.microsoft.com/en-us/graph/api/serviceprincipal-post-owners?view=graph-rest-1.0&tabs=http
+[AZ CLI App Owner - Microsoft Learn]: https://learn.microsoft.com/en-us/cli/azure/ad/app/owner?view=azure-cli-latest
+[AZ CLI SPN Owner - Microsoft     Learn]: https://learn.microsoft.com/en-us/cli/azure/ad/sp/owner?view=azure-cli-latest
+[Microsoft Entra built-in roles - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference
+[Workload Identity Federation - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation

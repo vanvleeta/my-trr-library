@@ -67,7 +67,7 @@ account, which can be used in a [Golden Ticket] attack.
 ## Procedures
 
 | ID | Title | Tactic |
-|----|----|----|
+| ---- | ---- | ---- |
 | TRR0015.WIN.A | Volume shadow copy access | Credential Access |
 | TRR0015.WIN.B | Raw disk access | Credential Access |
 
@@ -450,6 +450,14 @@ access.
 - [Volume Shadow Copy API - Microsoft Learn]
 - [Exposing and Surfacing Shadow Copies - Microsoft Learn]
 
+[^1]: [Extensible Storage Engine - Wikipedia]
+[^2]: [Volume Shadow Copy API - Microsoft Learn]
+[^3]: [Code Example: The Open Dialog Box - Microsoft Learn]
+[^4]: [VSS: Generating a Backup Set - Microsoft Learn]
+[^5]: [VShadow - GitHub]
+[^6]: [Exposing and Surfacing Shadow Copies - Microsoft Learn]
+[^7]: [An NTFS Parser Library - CodeProject]
+
 [T1003.003]: https://attack.mitre.org/techniques/T1003/003/
 [Golden Ticket]: https://attack.mitre.org/techniques/T1558/001/
 [Credential Dumping: NTDS.dit - Raj Chandel’s Blog]: https://www.hackingarticles.in/credential-dumping-ntds-dit/
@@ -479,11 +487,7 @@ access.
 [VSS: Generating a Backup Set - Microsoft Learn]: https://learn.microsoft.com/en-us/windows/win32/vss/generating-a-backup-set
 [Volume Shadow Copy API - Microsoft Learn]: https://learn.microsoft.com/en-us/windows/win32/vss/volume-shadow-copy-api-interfaces
 [Exposing and Surfacing Shadow Copies - Microsoft Learn]: https://learn.microsoft.com/en-us/windows/win32/vss/exposing-and-surfacing-shadow-copied-volumes
-
-[^1]: [Extensible Storage Engine - Wikipedia](https://en.wikipedia.org/wiki/Extensible\_Storage\_Engine)
-[^2]: [Volume Shadow Copy API - Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/vss/volume-shadow-copy-api-interfaces)
-[^3]: [Code Example: The Open Dialog Box - Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/learnwin32/example--the-open-dialog-box)
-[^4]: [VSS: Generating a Backup Set - Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/vss/generating-a-backup-set)
-[^5]: [VShadow - GitHub](https://github.com/microsoft/Windows-classic-samples/tree/main/Samples/VShadowVolumeShadowCopy)
-[^6]: [Exposing and Surfacing Shadow Copies - Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/vss/exposing-and-surfacing-shadow-copied-volumes)
-[^7]: [An NTFS Parser Library - CodeProject](https://www.codeproject.com/Articles/81456/An-NTFS-Parser-Lib)
+[Extensible Storage Engine - Wikipedia]: https://en.wikipedia.org/wiki/Extensible\_Storage\_Engine
+[Code Example: The Open Dialog Box - Microsoft Learn]: https://learn.microsoft.com/en-us/windows/win32/learnwin32/example--the-open-dialog-box
+[VShadow - GitHub]: https://github.com/microsoft/Windows-classic-samples/tree/main/Samples/VShadowVolumeShadowCopy
+[An NTFS Parser Library - CodeProject]: https://www.codeproject.com/Articles/81456/An-NTFS-Parser-Lib

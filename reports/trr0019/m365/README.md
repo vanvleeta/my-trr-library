@@ -239,12 +239,12 @@ App Registration in Entra.
 
 | API | Permission | Type (Application or Delegated) |
 | --- | --- | --- |
-| EXO & Graph | Mail.Read |  Both |
-| EXO | Mail.ReadWrite |  Both |
+| EXO & Graph | Mail.Read | Both |
+| EXO | Mail.ReadWrite | Both |
 | Graph | Mail.ReadWrite/Mail.ReadWrite.All | Delegated/Application |
-| EXO | full_access_as_app (for EWS) |  Application |
-| EXO | IMAP.AccessAsApp |  Application |
-| EXO | POP.AccessAsApp |  Application |
+| EXO | full_access_as_app (for EWS) | Application |
+| EXO | IMAP.AccessAsApp | Application |
+| EXO | POP.AccessAsApp | Application |
 | EXO & Graph | EWS.AccessAsUser.All | Delegated |
 | Graph | IMAP.AccessAsUser | Delegated |
 | Graph | POP.AccessAsUser | Delegated |
@@ -376,7 +376,7 @@ Get-Mailbox -Identity <mailbox> | format-list AuditEnabled
 The following actions are logged for each user logon type:
 
 | Action | Description | Admin | Delegate | Owner |
-| --- |  --- |  --- |  --- |  --- |
+| --- | --- | --- | --- | --- |
 | Copy | An item is copied to another folder. | Yes | No | No |
 | Create | An item is created in the Calendar, Contacts, Notes, or Tasks folder in the mailbox; for example, a new meeting request is created. Note that message or folder creation isn't audited. | Yes* | Yes* | Yes |
 | FolderBind | A mailbox folder is accessed. | Yes* | Yes** | No |
@@ -479,13 +479,13 @@ email from a victim tenant.[^10])
 
 ## Procedures
 
-| ID                           | Title            | Tactic            |
-|----------------|------------------|-------------------|
-| TRR0019.M365.A  | Valid Credentials | Collection    |
-| TRR0019.M365.B  | API Access as an Application | Collection |
-| TRR0019.M365.C  | eDiscovery | Collection |
-| TRR0019.M365.D  | Mailbox Delegation | Collection |
-| TRR0019.M365.E  | Export Mailbox | Collection |
+| ID | Title | Tactic |
+| --- | --- | --- |
+| TRR0019.M365.A | Valid Credentials | Collection |
+| TRR0019.M365.B | API Access as an Application | Collection |
+| TRR0019.M365.C | eDiscovery | Collection |
+| TRR0019.M365.D | Mailbox Delegation | Collection |
+| TRR0019.M365.E | Export Mailbox | Collection |
 
 ### Procedure A: Valid Credentials
 
@@ -807,105 +807,91 @@ provides equivalent functionality in EXO.
 - [mailbox: exportItems - Microsoft Learn]
 - [MS Graph JSON Batching]
 
+[^0]: [New-MailboxExportRequests - Microsoft Learn]
+[^1]: [Deprecation of Basic authentication in Exchange Online]
+[^2]: [Disable Basic authentication in Exchange Online]
+[^3]: [Exchange Online Permissions - Microsoft Learn]
+[^4]: [RBAC for Applications in EXO - Microsoft Learn]
+[^5]: [Limiting application permissions in EXO - Microsoft Learn]
+[^6]: [Microsoft Graph Permissions - Microsoft Learn]
+[^7]: [RBAC for Applications in EXO FAQs - Microsoft Learn]
+[^8]: [RBAC for Applications in EXO FAQs - Microsoft Learn]
+[^9]: [Verify first-party apps - Microsoft Learn]
+[^10]: [MailSniper - GitHub]
+[^11]: [ApplicationImpersonation RBAC Role Deprecation in EXO]
+[^12]: [Retirement of EWS - Microsoft]
+[^13]: [Microsoft Purview]
+[^14]: [Graph API: Create Searches - Microsoft Learn]
+[^15]: [Policy and Compliance Cmdlets - Microsoft Learn]
+[^16]: [New-MailboxExportRequest]
+[^17]: [Understanding Primary Refresh Token]
+[^18]: [AuditLogRecordType - Microsoft Learn]
+[^19]: [Results of Major Investigation into Storm-0558 Key Acquisition]
+[^20]: [Get-ServicePrincipal - Microsoft Learn]
+[^21]: [The way to control EWS usage in Exchange Online is changing - Microsoft]
+[^22]: [Introducing the Microsoft Graph Export-Import APIs for Exchange - Microsoft]
+[^23]: [Combine multiple HTTP requests using JSON batching]
+[^24]: [Exchange Store ItemIds - Microsoft Learn]
+[^25]: [Access Microsoft Graph activity logs]
+[^26]: [Shared mailboxes in Exchange Online]
+[^27]: [Filterable properties for the RecipientFilter parameter on Exchange cmdlets - Microsoft Learn]
+
 [Deprecation of Basic authentication in EXO - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online
-[Disable Basic Auth in EXO - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online
-[Exchange Online Permissions - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/exchange/permissions-exo/permissions-exo
+[Disable Basic Auth in EXO - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online
+[Exchange Online Permissions - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/permissions-exo/permissions-exo
 [RBAC for Applications in EXO - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/permissions-exo/application-rbac
 [T1114.002]: https://attack.mitre.org/techniques/T1114/002/
-[ExchangeService Class - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/dotnet/api/microsoft.exchange.webservices.data.exchangeservice
-[EWS Auth using OAUTH - GitHub]:
-    https://github.com/MicrosoftDocs/office-developer-exchange-docs/blob/main/docs/exchange-web-services/how-to-authenticate-an-ews-application-by-using-oauth.md
-[Export Items using EWS - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-export-items-by-using-ews-in-exchange
-[MailSniper - Black Hills Security]:
-    https://www.blackhillsinfosec.com/introducing-mailsniper-a-tool-for-searching-every-users-email-for-sensitive-data
-[Securing EXO: Users Accessing EXO for Administration]:
-    https://medium.com/@SecurityArchitect/secops-understanding-and-mitigating-risks-associated-with-users-accessing-exchange-online-for-7c44ba1292f1
-[Exporting Items with EWS - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-export-items-by-using-ews-in-exchange
-[Delegate Role Assignments - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/exchange/delegate-role-assignments-exchange-2013-help
-[O365 Audit Log]:
-    https://learn.microsoft.com/en-us/purview/audit-log-detailed-properties
+[ExchangeService Class - Microsoft Learn]: https://learn.microsoft.com/en-us/dotnet/api/microsoft.exchange.webservices.data.exchangeservice
+[EWS Auth using OAUTH - GitHub]: https://github.com/MicrosoftDocs/office-developer-exchange-docs/blob/main/docs/exchange-web-services/how-to-authenticate-an-ews-application-by-using-oauth.md
+[Export Items using EWS - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-export-items-by-using-ews-in-exchange
+[MailSniper - Black Hills Security]: https://www.blackhillsinfosec.com/introducing-mailsniper-a-tool-for-searching-every-users-email-for-sensitive-data
+[Securing EXO: Users Accessing EXO for Administration]: https://medium.com/@SecurityArchitect/secops-understanding-and-mitigating-risks-associated-with-users-accessing-exchange-online-for-7c44ba1292f1
+[Exporting Items with EWS - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/how-to-export-items-by-using-ews-in-exchange
+[Delegate Role Assignments - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/delegate-role-assignments-exchange-2013-help
+[O365 Audit Log]: https://learn.microsoft.com/en-us/purview/audit-log-detailed-properties
 [MAPI]: https://en.wikipedia.org/wiki/MAPI
-[Demo EWS Traffic - GitHub]:
-    https://github.com/jmartinmsft/Exchange-App-Usage-Reporting/blob/main/Demo-EWS-Traffic.md
-[Impersonation and EWS in EXO]:
-    https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange
-[Defining Permissions and Roles in AAD - Joonas W Blog]:
-    https://joonasw.net/view/defining-permissions-and-roles-in-aad
-[Delegated Access Primer - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/entra/identity-platform/delegated-access-primer
-[Scopes and permissions in the Microsoft identity platform - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc
+[Demo EWS Traffic - GitHub]: https://github.com/jmartinmsft/Exchange-App-Usage-Reporting/blob/main/Demo-EWS-Traffic.md
+[Impersonation and EWS in EXO]: https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange
+[Defining Permissions and Roles in AAD - Joonas W Blog]: https://joonasw.net/view/defining-permissions-and-roles-in-aad
+[Delegated Access Primer - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity-platform/delegated-access-primer
+[Scopes and permissions in the Microsoft identity platform - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc
 [eDiscovery - Microsoft Learn]: https://learn.microsoft.com/en-us/purview/edisc
-[eDiscovery Export Search Results - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/purview/edisc-search-export
-[App-Only Access for eDiscovery]:
-    https://learn.microsoft.com/en-us/graph/security-ediscovery-appauthsetup
-[MailItemsAccessed - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/mailbox-synchronization-and-ews-in-exchange
-[How to Access Other Mailboxes - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/how-to-access-other-mailboxes
-[Mailbox audit logging in Exchange Server]:
-    https://learn.microsoft.com/en-us/exchange/policy-and-compliance/mailbox-audit-logging/mailbox-audit-logging
-[Manage permissions for recipients in Exchange Online]:
-    https://learn.microsoft.com/en-us/exchange/recipients-in-exchange-online/manage-permissions-for-recipients
+[eDiscovery Export Search Results - Microsoft Learn]: https://learn.microsoft.com/en-us/purview/edisc-search-export
+[App-Only Access for eDiscovery]: https://learn.microsoft.com/en-us/graph/security-ediscovery-appauthsetup
+[MailItemsAccessed - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/mailbox-synchronization-and-ews-in-exchange
+[How to Access Other Mailboxes - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/how-to-access-other-mailboxes
+[Mailbox audit logging in Exchange Server]: https://learn.microsoft.com/en-us/exchange/policy-and-compliance/mailbox-audit-logging/mailbox-audit-logging
+[Manage permissions for recipients in Exchange Online]: https://learn.microsoft.com/en-us/exchange/recipients-in-exchange-online/manage-permissions-for-recipients
 [Results of Major Investigation into Storm-0558 Key Acquisition]: https://msrc.microsoft.com/blog/2023/09/results-of-major-technical-investigations-for-storm-0558-key-acquisition/
 [Remediation and Hardening Strategies for Microsoft 365 - Mandiant]: https://cloud.google.com/blog/topics/threat-intelligence/remediation-and-hardening-strategies-for-microsoft-365-to-defend-against-unc2452
 [Application Roles in EXO]: #application-roles-in-exo
 [Outlook Redemption]: https://dimastr.com/redemption/home.htm
-[First Look at new Import Export Graph API - Glen Scales]:
-    https://glenscales.substack.com/p/a-first-look-at-the-new-import-export-6f8
-[mailbox: exportItems - Microsoft Learn]:
-    https://learn.microsoft.com/en-us/graph/api/mailbox-exportitems
+[First Look at new Import Export Graph API - Glen Scales]: https://glenscales.substack.com/p/a-first-look-at-the-new-import-export-6f8
+[mailbox: exportItems - Microsoft Learn]: https://learn.microsoft.com/en-us/graph/api/mailbox-exportitems
 [MS Graph JSON Batching]: https://learn.microsoft.com/en-us/graph/json-batching
 [Atomic Test 1]: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1114.002/T1114.002.md#atomic-test-1---office365---remote-mail-collected
 [Atomic Test]: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1098.002/T1098.002.md#atomic-test-1---exo---full-access-mailbox-permission-granted-to-a-user
-
-[^0]: [New-MailboxExportRequests - Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/exchange/new-mailboxexportrequest?view=exchange-ps)
-[^1]: [Deprecation of Basic authentication in Exchange Online](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online)
-[^2]: [Disable Basic authentication in Exchange Online](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)
-[^3]: [Exchange Online Permissions - Microsoft Learn](https://learn.microsoft.com/en-us/exchange/permissions-exo/permissions-exo)
-[^4]: [RBAC for Applications in EXO - Microsoft Learn](https://learn.microsoft.com/en-us/exchange/permissions-exo/application-rbac)
-[^5]: [Limiting application permissions in EXO - Microsoft
-    Learn](https://learn.microsoft.com/en-us/graph/auth-limit-mailbox-access)
-[^6]: [Microsoft Graph Permissions - Microsoft
-    Learn](https://learn.microsoft.com/en-us/graph/permissions-reference)
-[^7]: [RBAC for Applications in EXO FAQs - Microsoft Learn](https://learn.microsoft.com/en-us/exchange/permissions-exo/application-rbac#how-can-i-view-and-modify-all-application-permissions-in-one-interface)
-[^8]: [RBAC for Applications in EXO FAQs - Microsoft
-    Learn](https://learn.microsoft.com/en-us/exchange/permissions-exo/application-rbac#how-does-rbac-for-applications-work-alongside-application-access-policies)
-[^9]: [Verify first-party apps - Microsoft
-    Learn](https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in)
-[^10]: [MailSniper - GitHub](https://github.com/dafthack/MailSniper/blob/master/MailSniper.ps1)
-[^11]: [ApplicationImpersonation RBAC Role Deprecation in
-    EXO](https://techcommunity.microsoft.com/blog/exchange/critical-update-applicationimpersonation-rbac-role-deprecation-in-exchange-onlin/4295762)
-[^12]: [Retirement of EWS -
-    Microsoft](https://techcommunity.microsoft.com/blog/exchange/retirement-of-exchange-web-services-in-exchange-online/3924440)
-[^13]: [Microsoft Purview](https://purview.microsoft.com)
-[^14]: [Graph API: Create Searches - Microsoft Learn](https://learn.microsoft.com/en-us/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0&tabs=http)
-[^15]: [Policy and Compliance Cmdlets - Microsoft
-    Learn](https://learn.microsoft.com/en-us/powershell/module/exchange/?view=exchange-ps#policy-and-compliance-content-search)
-[^16]: [New-MailboxExportRequest](https://learn.microsoft.com/en-us/powershell/module/exchange/new-mailboxexportrequest?view=exchange-ps)
-[^17]: [Understanding Primary Refresh Token](https://learn.microsoft.com/en-us/entra/identity/devices/concept-primary-refresh-token)
-[^18]: [AuditLogRecordType - Microsoft Learn](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype)
-[^19]: [Results of Major Investigation into Storm-0558 Key Acquisition](
-    https://msrc.microsoft.com/blog/2023/09/)
-[^20]: [Get-ServicePrincipal - Microsoft
-    Learn](https://learn.microsoft.com/en-us/powershell/module/exchange/get-serviceprincipal)
-[^21]: [The way to control EWS usage in Exchange Online is changing - Microsoft](https://techcommunity.microsoft.com/blog/exchange/the-way-to-control-ews-usage-in-exchange-online-is-changing/4383083)
-[^22]: [Introducing the Microsoft Graph Export-Import APIs for
-    Exchange - Microsoft](https://devblogs.microsoft.com/microsoft365dev/introducing-the-microsoft-graph-export-import-apis-for-exchange-in-public-preview/)
-[^23]: [Combine multiple HTTP requests using JSON
-    batching](https://learn.microsoft.com/en-us/graph/json-batching)
-[^24]: [Exchange Store ItemIds - Microsoft
-    Learn](https://learn.microsoft.com/en-us/exchange/client-developer/web-service-reference/itemid)
-[^25]: [Access Microsoft Graph activity
-    logs](https://learn.microsoft.com/en-us/graph/microsoft-graph-activity-logs-overview)
-[^26]: [Shared mailboxes in Exchange
-    Online](https://learn.microsoft.com/en-us/exchange/collaboration-exo/shared-mailboxes)
-[^27]: [Filterable properties for the RecipientFilter parameter on Exchange
-    cmdlets - Microsoft Learn](https://learn.microsoft.com/en-us/powershell/exchange/recipientfilter-properties?view=exchange-ps)
+[New-MailboxExportRequests - Microsoft Learn]: https://learn.microsoft.com/en-us/powershell/module/exchange/new-mailboxexportrequest?view=exchange-ps
+[Deprecation of Basic authentication in Exchange Online]: https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online
+[Disable Basic authentication in Exchange Online]: https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online
+[Limiting application permissions in EXO - Microsoft Learn]: https://learn.microsoft.com/en-us/graph/auth-limit-mailbox-access
+[Microsoft Graph Permissions - Microsoft Learn]: https://learn.microsoft.com/en-us/graph/permissions-reference
+[RBAC for Applications in EXO FAQs - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/permissions-exo/application-rbac#how-can-i-view-and-modify-all-application-permissions-in-one-interface
+[Verify first-party apps - Microsoft Learn]: https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in
+[MailSniper - GitHub]: https://github.com/dafthack/MailSniper/blob/master/MailSniper.ps1
+[ApplicationImpersonation RBAC Role Deprecation in EXO]: https://techcommunity.microsoft.com/blog/exchange/critical-update-applicationimpersonation-rbac-role-deprecation-in-exchange-onlin/4295762
+[Retirement of EWS - Microsoft]: https://techcommunity.microsoft.com/blog/exchange/retirement-of-exchange-web-services-in-exchange-online/3924440
+[Microsoft Purview]: https://purview.microsoft.com
+[Graph API: Create Searches - Microsoft Learn]: https://learn.microsoft.com/en-us/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0&tabs=http
+[Policy and Compliance Cmdlets - Microsoft Learn]: https://learn.microsoft.com/en-us/powershell/module/exchange/?view=exchange-ps#policy-and-compliance-content-search
+[New-MailboxExportRequest]: https://learn.microsoft.com/en-us/powershell/module/exchange/new-mailboxexportrequest?view=exchange-ps
+[Understanding Primary Refresh Token]: https://learn.microsoft.com/en-us/entra/identity/devices/concept-primary-refresh-token
+[AuditLogRecordType - Microsoft Learn]: https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype
+[Get-ServicePrincipal - Microsoft Learn]: https://learn.microsoft.com/en-us/powershell/module/exchange/get-serviceprincipal
+[The way to control EWS usage in Exchange Online is changing - Microsoft]: https://techcommunity.microsoft.com/blog/exchange/the-way-to-control-ews-usage-in-exchange-online-is-changing/4383083
+[Introducing the Microsoft Graph Export-Import APIs for Exchange - Microsoft]: https://devblogs.microsoft.com/microsoft365dev/introducing-the-microsoft-graph-export-import-apis-for-exchange-in-public-preview/
+[Combine multiple HTTP requests using JSON batching]: https://learn.microsoft.com/en-us/graph/json-batching
+[Exchange Store ItemIds - Microsoft Learn]: https://learn.microsoft.com/en-us/exchange/client-developer/web-service-reference/itemid
+[Access Microsoft Graph activity logs]: https://learn.microsoft.com/en-us/graph/microsoft-graph-activity-logs-overview
+[Shared mailboxes in Exchange Online]: https://learn.microsoft.com/en-us/exchange/collaboration-exo/shared-mailboxes
+[Filterable properties for the RecipientFilter parameter on Exchange cmdlets - Microsoft Learn]: https://learn.microsoft.com/en-us/powershell/exchange/recipientfilter-properties?view=exchange-ps

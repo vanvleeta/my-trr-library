@@ -131,10 +131,10 @@ subscription. The `operationName` field will read
 
 ## Procedures
 
-| ID                | Title            | Tactic            |
-|-------------------|------------------|-------------------|
-| TRR0022.AZR.A     | Hijack via an external guest user  | Persistence, Impact |
-| TRR0022.AZR.B     | Hijack via an internal user             | Persistence, Impact |
+| ID | Title | Tactic |
+| --------------- | ------------------ | ------------------- |
+| TRR0022.AZR.A | Hijack via an external guest user | Persistence, Impact |
+| TRR0022.AZR.B | Hijack via an internal user | Persistence, Impact |
 
 ### Procedure A: Hijack via an external guest user
 
@@ -187,6 +187,9 @@ that allows subscription transfers, and can then initiate the transfer.
 - [Azure subscription hijacking and cryptomining - Medium]
 - [Allow or block B2B collaboration with organizations - Microsoft Learn]
 
+[^1]: [Configure External Collab Settings - Microsoft Learn]
+[^2]: [Manage Azure subscription policies - Microsoft Learn]
+
 [AZT507.3]: https://microsoft.github.io/Azure-Threat-Research-Matrix/Persistence/AZT507/AZT507-3/
 [T1496.004]: https://attack.mitre.org/techniques/T1496/004/
 [Transfer Subscriptions - Microsoft Learn]: https://learn.microsoft.com/en-us/azure/role-based-access-control/transfer-subscription
@@ -195,6 +198,4 @@ that allows subscription transfers, and can then initiate the transfer.
 [Cross-Tenant Access - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-overview
 [Azure subscription hijacking and cryptomining - Medium]: https://derkvanderwoude.medium.com/azure-subscription-hijacking-and-cryptomining-86c2ac018983
 [Allow or block B2B collaboration with organizations - Microsoft Learn]: https://learn.microsoft.com/en-us/entra/external-id/allow-deny-list
-
-[^1]: [Configure External Collab Settings - Microsoft Learn](https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure)
-[^2]: [Manage Azure subscription policies - Microsoft Learn](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/manage-azure-subscription-policy)
+[Manage Azure subscription policies - Microsoft Learn]: https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/manage-azure-subscription-policy

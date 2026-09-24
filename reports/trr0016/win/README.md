@@ -230,6 +230,11 @@ the right library and export.
 - [Theat Research Questions - Red Canary]
 - [Poweliks Command Line Confusion - StormShield Blog]
 
+[^1]: [Hacking Around HTA Files - Sevagas blog]
+[^2]: This file extension limit appears to be because file types associated as
+`text` or `image` MIME types have their own renderer in the MSHTML engine, so
+the HTA code is never rendered as an HTML Application.
+
 [T1218.005]: https://attack.mitre.org/techniques/T1218/005/
 [command identifiers]: https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/hh801237(v=vs.85)
 [trickery going on]:
@@ -244,8 +249,4 @@ the right library and export.
 [MSHTA - Red Canary]: https://redcanary.com/threat-detection-report/techniques/mshta/
 [Theat Research Questions - Red Canary]: https://redcanary.com/blog/threat-research-questions/
 [Poweliks Command Line Confusion - StormShield Blog]: https://www.stormshield.com/news/poweliks-command-line-confusion/
-
-[^1]: [Hacking Around HTA Files - Sevagas blog](https://blog.sevagas.com/?Hacking-around-HTA-files)
-[^2]: This file extension limit appears to be because file types associated as
-`text` or `image` MIME types have their own renderer in the MSHTML engine, so
-the HTA code is never rendered as an HTML Application.
+[Hacking Around HTA Files - Sevagas blog]: https://blog.sevagas.com/?Hacking-around-HTA-files

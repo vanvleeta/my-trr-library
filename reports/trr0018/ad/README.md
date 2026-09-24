@@ -8,7 +8,7 @@
 | External IDs | [T1558.003]       |
 | Tactics      | Credential Access |
 | Platforms    | Active Directory  |
-| Contributors | Andrew VanVleet, Chris Hodson   |
+| Contributors | Andrew VanVleet, Chris Hodson |
 
 ## Technique Overview
 
@@ -199,12 +199,12 @@ There are numerous public tools or scripts for Kerberoasting. The table below
 categorizes a selection of them by which protocol they use for enumerating SPNs:
 
 | LDAP | ADWS |
-|----|----|
-| [Rubeus]| Powershell [ActiveDirectory] module |
+| ---- | ---- |
+| [Rubeus] | Powershell [ActiveDirectory] module |
 | [SetSPN.exe] | [SOAPHound] |
-| Impacket's [GetUserSPNs.py]|  |
-| Empire Powershell's "[Invoke-Kerberoast]"|  |
-| .NET [DirectorySearcher] class |  |
+| Impacket's [GetUserSPNs.py] | |
+| Empire Powershell's "[Invoke-Kerberoast]" | |
+| .NET [DirectorySearcher] class | |
 
 In addition to having two protocols for enumeration, there are two possible
 approaches to the enumeration query:
@@ -221,7 +221,7 @@ client-side filtering). The table below shows the critical portion of the LDAP
 query used by some of the well-known tools.
 
 | Tool | LDAP Query |
-|----|----|
+| ---- | ---- |
 | Rubeus | (&(samAccountType=805306368)**(servicePrincipalName=*)** |
 | SetSPN.exe | **(servicePrincipalName=\*/\*)** |
 | Impacket's GetUserSPN.py | (&(objectCategory=person)(!(UserAccountControl:1.2.840.113556.1.4.803:=2))**(servicePrincipalName=*)**) |
@@ -281,8 +281,8 @@ ActiveDirectoryServiceAccessRequest event.
 
 ## Procedures
 
-| ID           | Title            | Tactic    |
-|--------------|------------------|-------------------|
+| ID | Title | Tactic |
+| -------------- | ------------------ | ------------------- |
 | TRR0018.AD.A | Enumerate SPNs with LDAP | Credential Access |
 | TRR0018.AD.B | Enumerate SPNs with ADWS | Credential Access |
 | TRR0018.AD.C | Intercept Tickets On the Network | Credential Access |
@@ -373,12 +373,12 @@ opportunities for this procedure.
 
 ## Available Emulation Tests
 
-| ID           | Link             |
-|--------------|------------------|
+| ID | Link |
+| -------------- | ----------------- |
 | TRR0018.AD.A | [Atomic Tests 1-3, 5-7] |
-| TRR0018.AD.B |  |
-| TRR0018.AD.C |  |
-| TRR0018.AD.D |  |
+| TRR0018.AD.B | |
+| TRR0018.AD.C | |
+| TRR0018.AD.D | |
 
 ## References
 
@@ -389,6 +389,13 @@ opportunities for this procedure.
 - [Rubeus' Roast.cs - GitHub]
 - [SPN Types]
 - [Machine Accounts in the Active Directory - XMCO.fr]
+
+[^0]: [Known Plaintext Attack - Wikipedia]
+[^1]: [Kerberos v5 Protocol - Robert Broeckelmann]
+[^2]: [Kerberos Wireshark Captures - Robert Broeckelmann]
+[^3]: [Designing an Authentication System: a Dialogue in Four Scenes - MIT.edu]
+[^5]: [Get-KerberosTicketCache.ps1 - GitHub]
+[^6]: [Rubeus - GitHub]
 
 [T1558.003]: https://attack.mitre.org/techniques/T1558/003/
 [T1558.004]: https://attack.mitre.org/techniques/T1558/004/
@@ -412,10 +419,7 @@ opportunities for this procedure.
 [Machine Accounts in the Active Directory - XMCO.fr]: https://www.xmco.fr/en/active-directory-en/part-5-machine-accounts-in-the-active-directory/
 [Service Principal Names]: #service-principal-names-spns
 [SPN Types]: https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff649429(v=pandp.10)?redirectedfrom=MSDN#spn-types
-
-[^0]: [Known Plaintext Attack - Wikipedia](https://en.wikipedia.org/wiki/Known-plaintext_attack)
-[^1]: [Kerberos v5 Protocol - Robert Broeckelmann](https://medium.com/@robert.broeckelmann/kerberos-and-windows-security-kerberos-v5-protocol-b9c804e06479)
-[^2]: [Kerberos Wireshark Captures - Robert Broeckelmann](https://medium.com/@robert.broeckelmann/kerberos-wireshark-captures-a-windows-login-example-151fabf3375a)
-[^3]: [Designing an Authentication System: a Dialogue in Four Scenes - MIT.edu](https://web.mit.edu/kerberos/dialogue.html)
-[^5]: [Get-KerberosTicketCache.ps1 - GitHub](https://github.com/Invoke-IR/ACE/blob/master/ACE-Management/PS-ACE/Scripts/ACE_Get-KerberosTicketCache.ps1)
-[^6]: [Rubeus - GitHub](https://github.com/GhostPack/Rubeus/blob/6ce95440c7ff8c6a458d6999d197cab58c66dac7/Rubeus/lib/LSA.cs#L191)
+[Known Plaintext Attack - Wikipedia]: https://en.wikipedia.org/wiki/Known-plaintext_attack
+[Designing an Authentication System: a Dialogue in Four Scenes - MIT.edu]: https://web.mit.edu/kerberos/dialogue.html
+[Get-KerberosTicketCache.ps1 - GitHub]: https://github.com/Invoke-IR/ACE/blob/master/ACE-Management/PS-ACE/Scripts/ACE_Get-KerberosTicketCache.ps1
+[Rubeus - GitHub]: https://github.com/GhostPack/Rubeus/blob/6ce95440c7ff8c6a458d6999d197cab58c66dac7/Rubeus/lib/LSA.cs#L191

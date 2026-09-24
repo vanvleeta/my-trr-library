@@ -2,12 +2,12 @@
 
 ## Metadata
 
-| Key     | Value  |
-|--------------|---------|
-| ID           | TRR0012 |
+| Key | Value |
+| --- | --- |
+| ID | TRR0012 |
 | External IDs | [T1558.004] |
-| Tactics      | Credential Access |
-| Platforms    | Active Directory |
+| Tactics | Credential Access |
+| Platforms | Active Directory |
 | Contributors | Andrew VanVleet |
 
 ## Technique Overview
@@ -207,10 +207,10 @@ as Windows event 4771, but it shows the value in decimal instead of hex, so
 ## Procedures
 
 | ID | Title | Tactic |
-|----|----|----|
+| ---- | ---- | ---- |
 | TRR0012.AD.A | Enumerate Accounts Lacking Pre-Authentication via LDAP | Credential Access |
 | TRR0012.AD.B | Enumerate Accounts Lacking Pre-Authentication via ADWS | Credential Access |
-| TRR0012.AD.C | Test All Accounts for Pre-Authentication Status| Credential Access |
+| TRR0012.AD.C | Test All Accounts for Pre-Authentication Status | Credential Access |
 | TRR0012.AD.D | Intercept AS Messages on the Network | Credential Access |
 
 ### Procedure A: Enumerate Accounts Lacking Pre-Authentication via LDAP
@@ -300,7 +300,7 @@ permits harvesting network packets.
 ## Available Emulation Tests
 
 | ID | Link |
-|----|----|
+| ---- | ---- |
 | TRR0012.AD.A | [Atomic Tests 1-3] |
 | TRR0012.AD.B | |
 | TRR0012.AD.C | |
@@ -318,6 +318,17 @@ permits harvesting network packets.
 - [Event 4771 - Microsoft Learn]
 - [Rubeus Roast.cs - GitHub]
 
+[^0]: [Known Plaintext Attack - Wikipedia]
+[^1]: [Kerberos v5 Protocol - Robert Broeckelmann]
+[^2]: [Kerberos Wireshark Captures - Robert Broeckelmann]
+[^3]: [Designing an Authentication System: a Dialogue in Four Scenes - MIT.edu]
+[^4]: [AD Schema: userAccountControl - Microsoft Learn]
+[^5]: [Mask (Computing) - Wikipedia]
+[^6]: [LDAP Matching Rules - Microsoft Learn]
+[^7]: [Event 4768 - Microsoft Learn]
+[^8]: [Kerberos Parameters - IANA]
+[^9]: [Configuring SACL for AD Objects - ADAuditPlus.com]
+
 [T1558.004]: https://attack.mitre.org/techniques/T1558/004/
 [Introduction to Kerberos - Echo_Slow]: https://infosecwriteups.com/introduction-to-kerberos-39a1922ec5ac
 [AS-REQ Roasting from a Router - Devin Boyle]: https://medium.com/@business1sg00d/as-req-roasting-from-a-router-2a216c801a2c
@@ -327,17 +338,12 @@ permits harvesting network packets.
 [Kerberos Wireshark Captures - Robert Broeckelmann]: https://medium.com/@robert.broeckelmann/kerberos-wireshark-captures-a-windows-login-example-151fabf3375a
 [Event 4768 - Microsoft Learn]: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4768
 [Event 4771 - Microsoft Learn]: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4771
-[Rubeus Roast.cs - GitHub]:
-    https://github.com/GhostPack/Rubeus/blob/master/Rubeus/lib/Roast.cs
+[Rubeus Roast.cs - GitHub]: https://github.com/GhostPack/Rubeus/blob/master/Rubeus/lib/Roast.cs
 [Atomic Tests 1-3]: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1558.004/T1558.004.md
-
-[^0]: [Known Plaintext Attack - Wikipedia](https://en.wikipedia.org/wiki/Known-plaintext_attack)
-[^1]: [Kerberos v5 Protocol - Robert Broeckelmann](https://medium.com/@robert.broeckelmann/kerberos-and-windows-security-kerberos-v5-protocol-b9c804e06479)
-[^2]: [Kerberos Wireshark Captures - Robert Broeckelmann](https://medium.com/@robert.broeckelmann/kerberos-wireshark-captures-a-windows-login-example-151fabf3375a)
-[^3]: [Designing an Authentication System: a Dialogue in Four Scenes - MIT.edu](https://web.mit.edu/kerberos/dialogue.html)
-[^4]: [AD Schema: userAccountControl - Microsoft Learn](https://learn.microsoft.com/en-us/windows/win32/adschema/a-useraccountcontrol)
-[^5]: [Mask (Computing) - Wikipedia](https://en.wikipedia.org/wiki/Mask_(computing))
-[^6]: [LDAP Matching Rules - Microsoft Learn](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/4e638665-f466-4597-93c4-12f2ebfabab5)
-[^7]: [Event 4768 - Microsoft Learn](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4768)
-[^8]: [Kerberos Parameters - IANA](https://www.iana.org/assignments/kerberos-parameters/kerberos-parameters.xhtml)
-[^9]: [Configuring SACL for AD Objects - ADAuditPlus.com](https://demo.adauditplus.com/help/reports/access-aduc-to-enable-audit-sacls.html)
+[Known Plaintext Attack - Wikipedia]: https://en.wikipedia.org/wiki/Known-plaintext_attack
+[Designing an Authentication System: a Dialogue in Four Scenes - MIT.edu]: https://web.mit.edu/kerberos/dialogue.html
+[AD Schema: userAccountControl - Microsoft Learn]: https://learn.microsoft.com/en-us/windows/win32/adschema/a-useraccountcontrol
+[Mask (Computing) - Wikipedia]: https://en.wikipedia.org/wiki/Mask_(computing)
+[LDAP Matching Rules - Microsoft Learn]: https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/4e638665-f466-4597-93c4-12f2ebfabab5
+[Kerberos Parameters - IANA]: https://www.iana.org/assignments/kerberos-parameters/kerberos-parameters.xhtml
+[Configuring SACL for AD Objects - ADAuditPlus.com]: https://demo.adauditplus.com/help/reports/access-aduc-to-enable-audit-sacls.html
