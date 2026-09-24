@@ -1,8 +1,6 @@
 # Technique Research Report (TRR) Library Template
 
-> This is the TIRED Labs records library template. Deployed libraries — the
-> public TRR library and any private library an organization runs — are
-> instances of this repository.
+> This repo is an instance of the TIRED Labs records library template.
 
 ## Overview
 
